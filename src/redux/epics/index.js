@@ -1,7 +1,8 @@
 import { combineEpics } from 'redux-observable';
 
 import { getRecipeByNameEpic } from './recipe.epics';
+import {Observable} from 'rxjs';
 
-export default combineEpics(
+export default (...args) => combineEpics(
   getRecipeByNameEpic,
-)
+)(...args, {ajax: Observable.ajax})
