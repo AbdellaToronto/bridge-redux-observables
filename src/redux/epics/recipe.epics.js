@@ -53,3 +53,7 @@ export const getRecipeByNameEpic = (action$, _, { ajax }) =>
 
 
     );
+
+
+// export const getRecipeByCalories = (action$, _, { ajax }) => action$.ofType('caloriething').flatMap(() => ajax('someEndpoint')).map((payload) => {type: 'finalAction', payload})
+

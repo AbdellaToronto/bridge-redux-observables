@@ -1,13 +1,15 @@
 import { RECIPE_ACTIONS } from '../actions/recipe.actions';
 
-const DEFAULT_STATE = {
+export const DEFAULT_STATE = {
   list: [],
   isError: false,
   searchText: '',
   filterText: ''
 };
 
-export default (state = DEFAULT_STATE, action) => {
+
+
+export const recipeReducer = (state = DEFAULT_STATE, action) => {
 
   switch(action.type) {
 
@@ -33,4 +35,6 @@ export default (state = DEFAULT_STATE, action) => {
     default:
       return state;
   }
-}
+};
+
+export default recipeReducer;

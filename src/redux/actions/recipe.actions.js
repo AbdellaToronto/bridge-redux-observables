@@ -25,3 +25,19 @@ export const updateFilterText = filterEvent => ({
   payload: filterEvent.target.value
 });
 
+
+// export const updateFilterText = filterEvent => {
+//   return (dispatch) => {
+//
+//     $.get('someUrl').then(result => dispatch({type: 'someUrlResult', payload: result}));
+//
+//     dispatch({type: 'someRecipeAction', payload: 'val'});
+//
+//     return {
+//       type: RECIPE_ACTIONS.UPDATE_FILTER_TEXT,
+//       payload:
+//       filterEvent.target.value
+//     };
+//   }
+// };
+

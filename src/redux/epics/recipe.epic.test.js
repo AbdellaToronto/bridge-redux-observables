@@ -16,12 +16,17 @@ const action$ = ActionsObservable.of(
 describe('getRecipeByName Epic', () => {
 
   it('dispatches the correct action when it is successful', (done) => {
-    const ajax = () => Observable.of({ response: { hits: [] }}); // this will be replacing our ajax call!
+    const ajax = () => Observable.of({ response: {
+      hits: [{recipe: 'Deep and Dellaicious Cake'}, {recipe: 'Mozzadella'}]
+    }}); // this will be replacing our ajax call!
 
 
     getRecipeByNameEpic(action$, null, { ajax })
       .subscribe(result => {
         expect(result.type).toBe(RECIPE_ACTIONS.RECIPES_RECEIVED_SUCCESS);
+
+        expect(result.payload).toEqual(["Deep and Dellaicious Cake", "Mozzadella"]);
+
         done();
       })
 
