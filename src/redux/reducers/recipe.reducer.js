@@ -1,11 +1,15 @@
 import { RECIPE_ACTIONS } from '../actions/recipe.actions';
 
-const DEFAULT_STATE = {
+export const DEFAULT_STATE = {
   list: [],
-  isError: false
+  isError: false,
+  searchText: '',
+  filterText: ''
 };
 
-export default (state = DEFAULT_STATE, action) => {
+
+
+export const recipeReducer = (state = DEFAULT_STATE, action) => {
 
   switch(action.type) {
 
@@ -16,6 +20,13 @@ export default (state = DEFAULT_STATE, action) => {
       return {...state, list: action.payload, isError: false };
 
 
+    case RECIPE_ACTIONS.UPDATE_SEARCH_TEXT:
+      return {...state, searchText: action.payload};
+
+    case RECIPE_ACTIONS.UPDATE_FILTER_TEXT:
+      return {...state, filterText: action.payload};
+
+
       // We'll handle errors on a later date :) but if you feel like you might have an idea, or want to try it on your own...
       // https://github.com/redux-observable/redux-observable/blob/master/docs/recipes/ErrorHandling.md
     case RECIPE_ACTIONS.RECIPES_RECEIVED_ERROR:
@@ -24,4 +35,6 @@ export default (state = DEFAULT_STATE, action) => {
     default:
       return state;
   }
-}
+};
+
+export default recipeReducer;
